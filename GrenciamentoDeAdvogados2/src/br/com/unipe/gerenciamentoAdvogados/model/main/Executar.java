@@ -14,10 +14,7 @@ public class Executar {
 		auth.setNome("ADMIN");
 
 		AutorizacaoDAOImpl dao = new AutorizacaoDAOImpl();
-		Long idAuthAdmin = dao.create(auth);
-
-		Autorizacao authBD = dao.findById(idAuthAdmin);
-		System.out.println(authBD.getNome());
+		dao.create(auth);
 
 		Autorizacao auth2 = new Autorizacao();
 		auth2.setCreatedOn(new Date());
@@ -28,6 +25,10 @@ public class Executar {
 
 		for (Autorizacao a : list) {
 			System.out.println(a.getNome());
+			Autorizacao authBD = dao.findById(a.getId());
+			authBD.setNome(a.getNome()+":ADMIN");
+			dao.update(authBD);
+
 		}
 
 	}

@@ -17,7 +17,7 @@ public class EntityMaster implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdOn;
 
@@ -28,5 +28,13 @@ public class EntityMaster implements Serializable {
 	public void setCreatedOn(Date createdOn) {
 		this.createdOn = createdOn;
 	}
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}	
 
 }
