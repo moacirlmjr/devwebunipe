@@ -12,18 +12,20 @@ import br.com.unipe.gerenciamentoAdvogados.model.vo.Autorizacao;
 
 public class AutorizacaoDAOImpl {
 
-	public void create(Autorizacao autorizacao) {
+	public Long create(Autorizacao autorizacao) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			session.save(autorizacao);
+			Long idBd = (Long) session.save(autorizacao);
 			tx.commit();
+			return idBd;
 		} catch (HibernateException e) {
 			if (tx != null) {
 				tx.rollback();
 			}
 			e.printStackTrace();
+			return null;
 		} finally {
 			session.close();
 		}
