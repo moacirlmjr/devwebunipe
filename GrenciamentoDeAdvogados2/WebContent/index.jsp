@@ -3,6 +3,10 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
 <body>
-	Seja Bem-Vindo
+	Seja Bem-vindo
+
+	<br />
+	<a href="prepararListarAutorizacao">Listar Autorização</a><br/>
+	<a href="prepararListarUsuario">Listar Usuário</a>
 </body>
 </html>
